@@ -2,7 +2,7 @@
 
 namespace App\Classes; // A votre convenance
 
-class date
+class Date
 {
 
     private $NomsJours = [
