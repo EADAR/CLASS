@@ -1,9 +1,27 @@
 <?php
 
+/**
+* Les informations d'identifications sont stockés dans une classe de configuration (GlobalConfig).
+* En voici un extrait :
+*
+*   private static $db_config = array(
+*       'db_name' => 'yolo',
+*       'db_user' => 'root',
+*       'db_pass' => '',
+*       'db_host' => 'localhost',
+*       'db_charset' => 'utf8'
+*   );
+*
+*   public static function getBddConfig() {
+*       return self::$db_config;
+*   }
+*
+*/
+
 namespace App\Classes;
 
 use App\Config\GlobalConfig;
-use PDO;
+use \PDO;
 
 class Database
 {
@@ -42,9 +60,9 @@ class Database
                     'db_host' => $parameters[3],
                     'db_charset' => $parameters[4]
             );
-
-            /** Si la valeur n'est pas égale à "false", l'enregistrer à la place de la valeur par défaut */
+            
             foreach ($link_parameters as $key => $data) {
+                /** Si la valeur n'est pas égale à "false", l'enregistrer à la place de la valeur par défaut */
                 if ($data !== false) {
                     $this->$key = $data;
                 } else {
@@ -63,9 +81,6 @@ class Database
                         "Mot de passe (db_pass)" => "*****",
                         "Host (db_name)" => $this->db_host,
                         "Encodage (db_charset)" => $this->db_charset
-                ],
-                "Statut de la connexion" => [
-                        "Connexion valide ?" => $this->db_name
                 ]
         ];
     }
