@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Classes;
+namespace App\Classes; // A votre convenance
 
 class date
 {
