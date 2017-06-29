@@ -1,2 +1,2 @@
 # CLASS
-Répertoire de class utilitaires
+Répertoire de classes utiles au quotidien
